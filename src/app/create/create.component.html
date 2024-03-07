@@ -1,0 +1,279 @@
+<div class="container">
+  <div>
+    <h1 class="pb-3">Welcome to the registration page!</h1>
+    <h3>
+      Kindly fill up the form with correct details to register & update your
+      profile
+    </h3>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h3>{{ formStatus }}</h3>
+        <p class="mb-5">You can {{ formStatus }} here</p>
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-12 col-lg-6">
+          <div>
+            <label for="firstName"> First Name: </label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="firstName"
+              placeholder="First Name"
+              [ngClass]="{
+                'is-invalid': fc.firstName.touched && fc.firstName.invalid,
+                'is-valid': fc.firstName.touched && fc.firstName.valid
+              }"
+            />
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+          <div>
+            <label for="lastName"> Last Name: </label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="lastName"
+              placeholder="Last Name"
+              [ngClass]="{
+                'is-invalid': fc.lastName.touched && fc.lastName.invalid,
+                'is-valid': fc.lastName.touched && fc.lastName.valid
+              }"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-lg-6">
+          <div>
+            <label for="email" class="mb-2"
+              >Email Address <i class="fa-solid fa-envelope"></i
+            ></label>
+
+            <input
+              type="email"
+              class="form-control"
+              formControlName="email"
+              placeholder="Enter email"
+              [ngClass]="{
+                'is-invalid': fc.email.touched && fc.email.invalid,
+                'is-valid': fc.email.touched && fc.email.valid
+              }"
+            />
+            <div *ngIf="fc.email.errors?.required">
+              <div
+                *ngIf="fc.email.touched && fc.email.invalid"
+                class="alert alert-danger"
+              >
+                Email is required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- password -->
+        <div class="col-sm-12 col-lg-6">
+          <div>
+            <label for="email" class="mb-2"
+              >Password <i class="fa-solid fa-lock"></i
+            ></label>
+
+            <input
+              [type]="passwordFieldType"
+              class="form-control"
+              formControlName="password"
+              placeholder="Enter password"
+              [ngClass]="{
+                'is-invalid': fc.password.touched && fc.password.invalid,
+                'is-valid': fc.password.touched && fc.password.valid
+              }"
+            />
+            <input type="checkbox" (click)="togglePasswordVisibility()" />Show
+            <div *ngIf="fc.password.errors?.required">
+              <div
+                *ngIf="fc.password.touched && fc.password.invalid"
+                class="alert alert-danger"
+              >
+                Password is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- password -->
+    </div>
+
+    <!-- col-md-5..... -->
+    <div class="row">
+      <div class="col-sm-12 col-lg-6 mt-3 pt-3">
+        <div class="form-group mb-3">
+          <label for="matNo"
+            >Mat No <i class="fa-solid fa-school-lock"></i
+          ></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="UJ/2017/ED/0000"
+            formControlName="matNo"
+            required
+            [ngClass]="{
+              'is-invalid': fc.matNo.touched && fc.matNo.invalid,
+              'is-valid': fc.matNo.touched && fc.matNo.valid
+            }"
+          />
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="col-sm-12 col-lg-6 mt-3 pt-3">
+        <label for="">Please Select Sex <i class="fa-solid fa-user"></i></label>
+        <select
+          class="form-select form-control"
+          aria-label="Default select example"
+          formControlName="sex"
+        >
+          <option selected disabled>Select Sex.....</option>
+
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+        <div *ngIf="fc.sex.errors?.required">
+          <div
+            class="alert alert-danger"
+            *ngIf="fc.sex.touched && fc.sex.invalid"
+          >
+            Please Select a Sex
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--col-md-5....  -->
+    <div class="row">
+      <div class="col-s-12 col-md-5 mt-3 pt-3">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Faculty</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Faculty"
+            formControlName="faculty"
+            [ngClass]="{
+              'is-invalid': fc.faculty.touched && fc.faculty.invalid,
+              'is-valid': fc.faculty.touched && fc.faculty.valid
+            }"
+          />
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-sm-12 col-md-4 mt-3 pt-3">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Department</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Department"
+            formControlName="department"
+            [ngClass]="{
+              'is-invalid': fc.department.touched && fc.department.invalid,
+              'is-valid': fc.department.touched && fc.department.valid
+            }"
+          />
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-sm-12 col-md-3 mt-3 pt-3">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Programme</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Programme"
+            formControlName="programme"
+            [ngClass]="{
+              'is-invalid': fc.programme.touched && fc.programme.invalid,
+              'is-valid': fc.programme.touched && fc.programme.valid
+            }"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--  -->
+    <div class="row">
+      <div class="col-sm-6 mt-3 pt-3">
+        <label for="">Please Select a Level</label>
+        <select
+          class="form-select form-control"
+          aria-label="Default select example"
+          formControlName="level"
+        >
+          <option selected disabled>Select Level.....</option>
+          <option value="100">100</option>
+          <option value="200">200</option>
+          <option value="300">300</option>
+          <option value="400">400</option>
+        </select>
+        <div *ngIf="fc.level.errors?.required">
+          <div
+            class="alert alert-danger"
+            *ngIf="fc.level.touched && fc.level.invalid"
+          >
+            Please Select a Level
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 mt-3 pt-3">
+        <div class="row">
+          <div class="col mb-2">
+            <div class="form-group">
+              <label for="exampleFormControlFile1">Upload BioData</label>
+              <img [src]="imgSrc" class="form-control img-fluid img-preview" />
+              <input
+                type="file"
+                class="form-control-file"
+                formControlName="waec"
+                accept="image/*,.pdf"
+                (change)="showPreview($event)"
+                [ngClass]="{
+                  'is-invalid': fc.waec.touched && fc.waec.invalid,
+                  'is-valid': fc.waec.touched && fc.waec.valid
+                }"
+              />
+              <div *ngIf="fc.waec.errors?.required">
+                <div
+                  class="alert alert-danger"
+                  *ngIf="fc.waec.touched && fc.waec.invalid"
+                >
+                  Pls Upload your Bio Data
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instructions -->
+    <input
+      class="form-control mt-3 pt-3 text-center"
+      type="text"
+      placeholder="INPUT MAT NO IN THIS FORMAT: UJ/2023/NS/0000"
+      readonly
+    />
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="registrationForm.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

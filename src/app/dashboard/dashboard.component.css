@@ -1,0 +1,17 @@
+.container {
+  min-height: 100%;
+}
+
+.card {
+  margin-top: 3rem;
+}
+
+.float-end {
+  height: 4rem;
+  font-size: 2rem;
+}
+
+.img-preview {
+  height: 100%;
+  width: auto;
+}

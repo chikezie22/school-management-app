@@ -1,0 +1,71 @@
+<div class="side-bar container-fluid">
+  <div class="px-sm-2 px-0">
+    <div
+      class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
+    >
+      <a
+        href="/"
+        class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+      >
+        <h1 class="fs-10 d-none d-sm-inline">Welcome</h1>
+      </a>
+      <ul
+        class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+        id="menu"
+      >
+        <li class="nav-item mb-3">
+          <a routerLink="/" class="nav-link align-middle px-0">
+            <i class="fa-solid fa-home me-2"></i>
+            <span class="ms-1 d-none d-sm-inline">Home</span>
+          </a>
+        </li>
+        <li class="mb-3">
+          <a
+            routerLink="/dashboard"
+            data-bs-toggle="collapse"
+            class="nav-link px-0 align-middle"
+          >
+            <i class="fa-solid fa-gauge me-2"></i>
+            <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+          </a>
+        </li>
+        <li class="mb-3">
+          <a href="#" class="nav-link px-0 align-middle">
+            <i class="fa-solid fa-book me-2"></i>
+            <span class="ms-1 d-none d-sm-inline">Exams</span></a
+          >
+        </li>
+        <li class="mb-3">
+          <a
+            href="#submenu2"
+            data-bs-toggle="collapse"
+            class="nav-link px-0 align-middle"
+          >
+            <i class="fa-solid fa-chalkboard-user me-2"></i>
+            <span class="ms-1 d-none d-sm-inline">Level Co-ordinator</span></a
+          >
+        </li>
+      </ul>
+      <hr />
+      <div class="justify-items-end pb-1">
+        <a
+          href="#"
+          class="d-flex align-items-center text-white text-decoration-none"
+        >
+          <!-- <img
+              src="https://github.com/mdo.png"
+              alt="hugenerd"
+              width="30"
+              height="30"
+              class="rounded-circle"
+            /> -->
+          <i class="fa-solid fa-school me-2"></i>
+          <span class="d-none d-sm-inline mx-1" (click)="logOut()">Logout</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- <app-login></app-login> -->
+</div>
+
+<!-- NEW ONE -->

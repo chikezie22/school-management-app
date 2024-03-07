@@ -1,0 +1,66 @@
+<div class="container">
+  <div>
+    <h1>Welcome to the Login Page</h1>
+    <h3>Kindly input your login details</h3>
+  </div>
+  <div class="form d-flex justify-content-center min-vh-100 align-items-center">
+    <form #form="ngForm" (ngSubmit)="login(form)">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          >Email address <i class="fa-solid fa-envelope"></i
+        ></label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          ngModel
+          #email="ngModel"
+          required
+          email
+          [ngClass]="{
+            'is-invalid': email.touched && email.invalid,
+            'is-valid': email.touched && email.valid
+          }"
+        />
+        <div id="emailHelp" class="form-text">
+          We'll never share your email with anyone else.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" id="myInput"
+          >Password <i class="fa-solid fa-lock"></i
+        ></label>
+        <input
+          [type]="passwordFieldType"
+          class="form-control"
+          name="password"
+          ngModel
+          #password="ngModel"
+          required
+          [ngClass]="{
+            'is-invalid': password.touched && password.invalid,
+            'is-valid': password.touched && password.valid
+          }"
+        />
+        <input type="checkbox" (click)="togglePasswordVisibility()" />Show
+        Password
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-outline-primary"
+        [disabled]="form.invalid"
+      >
+        Login
+      </button>
+
+      <a routerLink="/create" class="text-reset">
+        <span class="text-end">Click Here to Register!</span></a
+      >
+
+      <!--  -->
+
+      <!--  -->
+    </form>
+  </div>
+</div>
